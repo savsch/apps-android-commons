@@ -2,13 +2,11 @@ package fr.free.nrw.commons.nearby.contract;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.LifecycleCoroutineScope;
 import fr.free.nrw.commons.BaseMarker;
 import fr.free.nrw.commons.kvstore.JsonKvStore;
 import fr.free.nrw.commons.location.LatLng;
 import fr.free.nrw.commons.location.LocationServiceManager.LocationChangeType;
 import fr.free.nrw.commons.nearby.Label;
-import fr.free.nrw.commons.nearby.MarkerPlaceGroup;
 import fr.free.nrw.commons.nearby.Place;
 import java.util.List;
 
@@ -70,7 +68,7 @@ public interface NearbyParentFragmentContract {
 
         Context getContext();
 
-        void replaceMarkerOverlays(List<MarkerPlaceGroup> markerPlaceGroups);
+        void updateMapMarkers(List<BaseMarker> BaseMarkers);
 
         void filterOutAllMarkers();
 
@@ -129,7 +127,5 @@ public interface NearbyParentFragmentContract {
         void setCheckboxUnknown();
 
         void setAdvancedQuery(String query);
-
-        void toggleBookmarkedStatus(Place place);
     }
 }
